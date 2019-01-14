@@ -210,7 +210,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Staatliches", sans-serif}
     <p>Call us at 647-549-1604</p>
     <p><span class="w3-tag">The Taste of Home!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy them through customization and quality. We guarantee fresh, healthy, tasty home made food!</p>
     <p class="w3-xxlarge"><strong>Order</strong> today! :</p>
-    <form method="post" target="_blank">
+    <form action="/action.php" target="_blank">
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="message"></p>
@@ -218,27 +218,6 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Staatliches", sans-serif}
     </form>
   </div>
 </div>
-
-<?php
-//if "email" variable is filled out, send email
-  if (isset($_REQUEST['email']))  {
-  
-  //Email information
-  $admin_email = "mashankarcatering@gmail.com";
-  $email = $_REQUEST['email'];
-  $name = $_REQUEST['name'];
-  $message = $_REQUEST['message'];
-  
-  //send email
-  mail($admin_email, "$name", $message, "From:" . $email);
-  
-  //Email response
-  echo "Thank you for contacting us! You'll here back from us soon!";
-  }
-  
-  //if "email" variable is not filled out, display the form
-  else  {
-?>
 
 
 <!-- Footer -->
