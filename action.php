@@ -17,4 +17,6 @@
   
   //if "email" variable is not filled out, display the form
   else  {
+    echo "Please try again";
+  }
 ?>
