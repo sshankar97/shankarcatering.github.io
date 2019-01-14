@@ -208,17 +208,38 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Staatliches", sans-serif}
   <div class="w3-content">
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Contact</h1>
     <p>Call us at 647-549-1604</p>
-    <p><span class="w3-tag">The Taste of Home!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy your them through customization and quality. We guarantee fresh, healthy, tasty home made food!</p>
+    <p><span class="w3-tag">The Taste of Home!</span> We offer full-service catering for any event, large or small. We understand your needs and we will cater the food to satisfy them through customization and quality. We guarantee fresh, healthy, tasty home made food!</p>
     <p class="w3-xxlarge"><strong>Order</strong> today! :</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
+    <form method="post" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="email" placeholder="Email" required name="email"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message \ Special requirements" required name="message"></p>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
     </form>
   </div>
 </div>
+
+<?php
+//if "email" variable is filled out, send email
+  if (isset($_REQUEST['email']))  {
+  
+  //Email information
+  $admin_email = "mashankarcatering@gmail.com";
+  $email = $_REQUEST['email'];
+  $name = $_REQUEST['name'];
+  $message = $_REQUEST['message'];
+  
+  //send email
+  mail($admin_email, "$name", $message, "From:" . $email);
+  
+  //Email response
+  echo "Thank you for contacting us! You'll here back from us soon!";
+  }
+  
+  //if "email" variable is not filled out, display the form
+  else  {
+?>
+
 
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
